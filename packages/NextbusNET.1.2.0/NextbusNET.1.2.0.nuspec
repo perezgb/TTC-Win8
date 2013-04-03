@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NextbusNET</id>
+    <version>1.2.0</version>
+    <title>NextbusNET</title>
+    <authors>Gabriel Perez</authors>
+    <owners>Gabriel Perez</owners>
+    <projectUrl>http://github.com/bogeaperez/NextbusNET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NextbusNET is a .NET client for the Nextbus web services.</description>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+    <tags>nextbus</tags>
+    <references>
+      <reference file="NextbusNET.dll" />
+    </references>
+  </metadata>
+</package>

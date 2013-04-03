@@ -38,6 +38,7 @@ namespace TTCW8
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _viewModel.Load();
         }
     }
 }

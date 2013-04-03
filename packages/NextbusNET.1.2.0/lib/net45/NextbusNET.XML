@@ -1,0 +1,644 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NextbusNET</name>
+    </assembly>
+    <members>
+        <member name="T:NextbusNET.INextbusAsyncClient">
+            <summary>
+            Client interaface for calling the Nextbus webservice asynchronously
+            </summary>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetAgencies">
+            <summary>
+            Obtains a list of all the agencies.
+            Represents the "agencyList" command from the webservices.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetRoutes(System.String)">
+            <summary>
+            Obtains a list of all the routes for an agency.
+            Represents the "routeList" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetRouteConfig(System.String,System.String)">
+            <summary>
+            Obtains the details for a specific route.
+            Represents the "routeConfig" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetPredictions(System.String,System.Int32,System.String)">
+            <summary>
+            Obtains the list of predictions associated with a stop.
+            Represents the "predictions" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="stopId"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetPredictions(System.String,System.String,System.String)">
+            <summary>
+            Obtains the list of predictions associated with a stop.
+            Represents the "predictions" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="stopTag"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetPredictionsForMultiStops(System.String,System.String[])">
+            <summary>
+            Obtains the list of predictions for multiple stops.
+            Represents the "predictionsForMultiStops" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="routeTags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetSchedule(System.String,System.String)">
+            <summary>
+            Obtains the schedule information for a route.
+            Represents the "schedule" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusAsyncClient.GetVehicles(System.String,System.String,System.Int32)">
+            <summary>
+            Obtains a list of vehicle locations.
+            Represents the ""vehicleLocation" command from the webservices.
+            </summary>
+            <param name="agency"></param>
+            <param name="route"></param>
+            <param name="epoch"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NextbusNET.INextbusClient">
+            <summary>
+            Client interaface for calling the Nextbus webservice
+            </summary>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetAgencies">
+            <summary>
+            Obtains a list of all the agencies.
+            Represents the "agencyList" command from the webservices.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetRoutes(System.String)">
+            <summary>
+            Obtains a list of all the routes for an agency.
+            Represents the "routeList" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetRouteConfig(System.String,System.String)">
+            <summary>
+            Obtains the details for a specific route.
+            Represents the "routeConfig" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetPredictions(System.String,System.Int32,System.String)">
+            <summary>
+            Obtains the list of predictions associated with a stop.
+            Represents the "predictions" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="stopId"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetPredictions(System.String,System.String,System.String)">
+            <summary>
+            Obtains the list of predictions associated with a stop.
+            Represents the "predictions" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="stopTag"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetPredictionsForMultiStops(System.String,System.String[])">
+            <summary>
+            Obtains the list of predictions for multiple stops.
+            Represents the "predictionsForMultiStops" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="routeTags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetSchedule(System.String,System.String)">
+            <summary>
+            Obtains the schedule information for a route.
+            Represents the "schedule" command from the webservices.
+            </summary>
+            <param name="agencyTag"></param>
+            <param name="routeTag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.INextbusClient.GetVehicles(System.String,System.String,System.Int32)">
+            <summary>
+            Obtains a list of vehicle locations.
+            Represents the ""vehicleLocation" command from the webservices.
+            </summary>
+            <param name="agency"></param>
+            <param name="route"></param>
+            <param name="epoch"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NextbusNET.Model.Agency">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NextbusNET.Model.Agency.Equals(NextbusNET.Model.Agency)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.Agency.op_Equality(NextbusNET.Model.Agency,NextbusNET.Model.Agency)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.Agency.op_Inequality(NextbusNET.Model.Agency,NextbusNET.Model.Agency)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NextbusNET.Model.Agency.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Agency.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Agency.RegionTitle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Direction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NextbusNET.Model.Direction.Equals(NextbusNET.Model.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.Direction.op_Equality(NextbusNET.Model.Direction,NextbusNET.Model.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.Direction.op_Inequality(NextbusNET.Model.Direction,NextbusNET.Model.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NextbusNET.Model.Direction.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Direction.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Direction.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Direction.UserForUI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Direction.Stops">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Path">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Path.Points">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Point">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Point.Lat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Point.Lon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.RouteConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NextbusNET.Model.RouteConfig.GetDirection(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.RouteConfig.Equals(NextbusNET.Model.RouteConfig)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.RouteConfig.op_Equality(NextbusNET.Model.RouteConfig,NextbusNET.Model.RouteConfig)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.RouteConfig.op_Inequality(NextbusNET.Model.RouteConfig,NextbusNET.Model.RouteConfig)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.ShortTitle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.Color">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.OppositeColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.LatMin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.LatMax">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.LonMin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.LonMax">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.Stops">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.Directions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteConfig.Paths">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.RouteSchedule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NextbusNET.Model.RouteSchedule.Equals(NextbusNET.Model.RouteSchedule)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.RouteSchedule.op_Equality(NextbusNET.Model.RouteSchedule,NextbusNET.Model.RouteSchedule)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.RouteSchedule.op_Inequality(NextbusNET.Model.RouteSchedule,NextbusNET.Model.RouteSchedule)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NextbusNET.Model.RouteSchedule.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteSchedule.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteSchedule.ScheduleClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteSchedule.ServiceClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteSchedule.Direction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.RouteSchedule.Stops">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NextbusNET.Model.Stop.Equals(NextbusNET.Model.Stop)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.Stop.op_Equality(NextbusNET.Model.Stop,NextbusNET.Model.Stop)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NextbusNET.Model.Stop.op_Inequality(NextbusNET.Model.Stop,NextbusNET.Model.Stop)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NextbusNET.Model.Stop.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Stop.Title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Stop.Lat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Stop.Lon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Stop.StopId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.StopSchedule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.StopSchedule.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.StopSchedule.EpochTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.StopSchedule.BlockId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.VehicleList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.VehicleList.Vehicles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.VehicleList.LastTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Vehicle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.RouteTag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.DirTag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.Lat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.Lon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.SecsSinceReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.Predictable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Vehicle.Heading">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Prediction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.EpochTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.Seconds">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.Minutes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.IsDeparture">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.TripTag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.AffectedByLayover">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.IsScheduleBased">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.Delayed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.DirTag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.Vehicle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Prediction.Block">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NextbusNET.Model.Route">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Route.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NextbusNET.Model.Route.Title">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
