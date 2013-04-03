@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-
+        <ListBox ItemsSource="{Binding Predictions}"></ListBox>
     </Grid>
 </Page>

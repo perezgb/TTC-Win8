@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TTCW8.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -21,9 +22,13 @@ namespace TTCW8
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private readonly MainViewModel _viewModel;
+
         public MainPage()
         {
             this.InitializeComponent();
+            _viewModel = new MainViewModel();
+            DataContext = _viewModel;
         }
 
         /// <summary>
