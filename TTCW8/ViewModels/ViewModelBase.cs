@@ -17,18 +17,55 @@ namespace TTCW8.ViewModels
         }
     }
 
+    public class PredictionViewModel : ViewModelBase
+    {
+        private int _seconds;
+
+        private readonly DispatcherTimer _timer;
+
+        private string _eta;
+
+        public PredictionViewModel(int seconds)
+        {
+            _seconds = seconds;
+            UpdateEta();
+            _timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(1)};
+            _timer.Tick += (sender, o) => UpdateEta();
+            _timer.Start();
+        }
+
+        private void UpdateEta()
+        {
+            if (_seconds > 0)
+            {
+                Eta = TimeSpan.FromSeconds(_seconds).ToString("mm\\:ss");
+                _seconds--;
+            }
+        }
+
+        public string Eta
+        {
+            get { return _eta; }
+            private set
+            {
+                _eta = value;
+                OnPropertyChanged("Eta");
+            }
+        }
+    }
+
     public class MainViewModel : ViewModelBase
     {
         private readonly INextbusAsyncClient _client;
 
         private readonly DispatcherTimer _timer;
 
-        public ObservableCollection<string> Predictions { get; set; }
+        public ObservableCollection<PredictionViewModel> Predictions { get; set; }
 
         public MainViewModel()
         {
             _client = new NextbusAsyncClient();
-            Predictions = new ObservableCollection<string>();
+            Predictions = new ObservableCollection<PredictionViewModel>();
             _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(5) };
             _timer.Tick += (sender, o) => Load();
             _timer.Start();
@@ -40,7 +77,7 @@ namespace TTCW8.ViewModels
             Predictions.Clear();
             foreach (var prediction in predictions)
             {
-                Predictions.Add(TimeSpan.FromSeconds(prediction.Seconds).ToString("mm\\:ss"));
+                Predictions.Add(new PredictionViewModel(prediction.Seconds));
             }
         }
     }
