@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using NextbusNET;
+using Windows.UI.Xaml;
 
 namespace TTCW8.ViewModels
 {
@@ -20,12 +21,17 @@ namespace TTCW8.ViewModels
     {
         private readonly INextbusAsyncClient _client;
 
+        private readonly DispatcherTimer _timer;
+
         public ObservableCollection<string> Predictions { get; set; }
 
         public MainViewModel()
         {
             _client = new NextbusAsyncClient();
             Predictions = new ObservableCollection<string>();
+            _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(5) };
+            _timer.Tick += (sender, o) => Load();
+            _timer.Start();
         }
 
         public async void Load()
