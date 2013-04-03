@@ -6,14 +6,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox ItemsSource="{Binding Predictions}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Eta}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Image Source="Assets/ttcbg.jpg" Grid.ColumnSpan="4" Stretch="UniformToFill"></Image>
+        <Grid Grid.Column="3" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Border Background="Red" Grid.Row="0" Padding="20">
+                <Image Source="Assets/ttc.png"></Image>
+            </Border>
+            <Border Background="Black" Grid.Row="1" Margin="80,10,80,10" Padding="30,0,0,0" CornerRadius="15">
+                <TextBlock Text="{Binding SelectedRoute}" FontSize="30" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            </Border>
+            <ListBox Grid.Row="2" ItemsSource="{Binding Predictions}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Red" Margin="5" Grid.Column="0" CornerRadius="15">
+                            <TextBlock Text="{Binding Eta}" Margin="5" Padding="10" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" />
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+            <Border Background="Red" Grid.Row="3"></Border>
+        </Grid>
     </Grid>
 </Page>

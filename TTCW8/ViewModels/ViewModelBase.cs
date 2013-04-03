@@ -62,6 +62,11 @@ namespace TTCW8.ViewModels
 
         public ObservableCollection<PredictionViewModel> Predictions { get; set; }
 
+        public string SelectedRoute
+        {
+            get { return "111"; }
+        }
+
         public MainViewModel()
         {
             _client = new NextbusAsyncClient();
