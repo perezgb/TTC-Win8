@@ -14,6 +14,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Image Source="Assets/ttcbg.jpg" Grid.ColumnSpan="4" Stretch="UniformToFill"></Image>
+        <ComboBox Grid.Column="0" VerticalAlignment="Top" ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute, Mode=TwoWay}" DisplayMemberPath="Title" FontSize="20" Background="Transparent" BorderBrush="Transparent"></ComboBox>
+        <ComboBox Grid.Column="1" VerticalAlignment="Top" ItemsSource="{Binding Directions}" SelectedItem="{Binding SelectedDirection, Mode=TwoWay}" DisplayMemberPath="Title" FontSize="20" Background="Transparent" BorderBrush="Transparent"></ComboBox>
+        <ComboBox Grid.Column="2" VerticalAlignment="Top" ItemsSource="{Binding Stops}" SelectedItem="{Binding SelectedStop, Mode=TwoWay}" DisplayMemberPath="Title" FontSize="20" Background="Transparent" BorderBrush="Transparent"></ComboBox>
         <Grid Grid.Column="3" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
@@ -24,13 +27,16 @@
             <Border Background="Red" Grid.Row="0" Padding="20">
                 <Image Source="Assets/ttc.png"></Image>
             </Border>
-            <Border Background="Black" Grid.Row="1" Margin="80,10,80,10" Padding="30,0,0,0" CornerRadius="15">
-                <TextBlock Text="{Binding SelectedRoute}" FontSize="30" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            <Border Background="Black" Grid.Row="1" Margin="10,10,10,10" Padding="30,10,0,0" CornerRadius="15">
+                <StackPanel>
+                    <TextBlock Text="{Binding SelectedRoute.Tag}" FontSize="30" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                    <TextBlock Text="{Binding SelectedStop.Title}" FontSize="20" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                </StackPanel>
             </Border>
             <ListBox Grid.Row="2" ItemsSource="{Binding Predictions}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border Background="Red" Margin="5" Grid.Column="0" CornerRadius="15">
+                        <Border Background="Red" Margin="80,10,80,10" Grid.Column="0" CornerRadius="15">
                             <TextBlock Text="{Binding Eta}" Margin="5" Padding="10" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" />
                         </Border>
                     </DataTemplate>
