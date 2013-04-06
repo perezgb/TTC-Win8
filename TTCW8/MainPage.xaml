@@ -1,10 +1,10 @@
-﻿<Page
+﻿<common:LayoutAwarePage
     x:Class="TTCW8.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TTCW8"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:common="using:TTCW8.Common"
     mc:Ignorable="d">
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -17,7 +17,7 @@
         <ComboBox Grid.Column="0" VerticalAlignment="Top" ItemsSource="{Binding Routes}" SelectedItem="{Binding SelectedRoute, Mode=TwoWay}" DisplayMemberPath="Title" FontSize="20" Background="Transparent" BorderBrush="Transparent"></ComboBox>
         <ComboBox Grid.Column="1" VerticalAlignment="Top" ItemsSource="{Binding Directions}" SelectedItem="{Binding SelectedDirection, Mode=TwoWay}" DisplayMemberPath="Title" FontSize="20" Background="Transparent" BorderBrush="Transparent"></ComboBox>
         <ComboBox Grid.Column="2" VerticalAlignment="Top" ItemsSource="{Binding Stops}" SelectedItem="{Binding SelectedStop, Mode=TwoWay}" DisplayMemberPath="Title" FontSize="20" Background="Transparent" BorderBrush="Transparent"></ComboBox>
-        <Grid Grid.Column="3" Background="White">
+        <Grid x:Name="grid" Grid.Column="3" Grid.ColumnSpan="1" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
@@ -49,5 +49,65 @@
             </ListBox>
             <Border Background="Red" Grid.Row="3"></Border>
         </Grid>
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>3</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>3</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>1</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Snapped" >
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>0</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Int32>4</x:Int32>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
-</Page>
+</common:LayoutAwarePage>
